@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KinBit — El dinero del sol</title>
+  <title>kitBit — El dinero del sol</title>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
 <nav>
-  <div class="nav-logo">₿ <span>Kin</span>Bit</div>
+  <div class="nav-logo">₿ <span>Kit</span>Bit</div>
   <ul class="nav-tabs">
     <li><button class="active" onclick="switchTab('inicio')">Inicio</button></li>
     <li><button onclick="switchTab('aprende')">Aprende</button></li>
@@ -29,7 +29,7 @@
   <section class="hero">
     <div class="hero-glow"></div>
     <div class="hero-badge">₿ Bitcoin · Lightning Network · México</div>
-    <h1><span class="kin">Kin</span><span class="bit">Bit</span></h1>
+    <h1><span class="kin">Kit</span><span class="bit">Bit</span></h1>
     <p class="hero-sub">Paga con Bitcoin en cualquier negocio.<br/><strong>El vendedor cobra en pesos. Sin banco. Sin app.</strong></p>
     <div class="hero-roles">
       <div class="role-card comprador" onclick="switchTab('comprador')">
@@ -48,7 +48,7 @@
     <div class="stat-card"><div class="stat-number">30M+</div><div class="stat-label">trabajadores informales en México (INEGI 2024)</div></div>
     <div class="stat-card"><div class="stat-number">49%</div><div class="stat-label">de mexicanos sin acceso a servicios bancarios formales</div></div>
     <div class="stat-card"><div class="stat-number">7–10%</div><div class="stat-label">cobra Western Union por transferencias internacionales</div></div>
-    <div class="stat-card"><div class="stat-number">~0.5%</div><div class="stat-label">comisión total con KinBit vía Lightning Network</div></div>
+    <div class="stat-card"><div class="stat-number">~0.5%</div><div class="stat-label">comisión total con kitBit vía Lightning Network</div></div>
   </div>
 </div>
 
@@ -65,7 +65,7 @@
     </div>
     <div class="concept-card" onclick="toggleConcept(this)">
       <div class="concept-header"><div class="concept-left"><div><div class="concept-title">Lightning Network</div><div class="concept-subtitle">Pagos instantáneos en Bitcoin</div></div></div><div class="concept-arrow">▼</div></div>
-      <div class="concept-body"><p>Lightning Network permite pagos en menos de 3 segundos con comisiones casi cero. KinBit usa Lightning para que el pago llegue al instante.</p><div class="concept-analogy"><strong>Analogía:</strong> Si Bitcoin es la carretera federal, Lightning es el carril rápido de cuota. Más rápido y más barato.</div></div>
+      <div class="concept-body"><p>Lightning Network permite pagos en menos de 3 segundos con comisiones casi cero. kitBit usa Lightning para que el pago llegue al instante.</p><div class="concept-analogy"><strong>Analogía:</strong> Si Bitcoin es la carretera federal, Lightning es el carril rápido de cuota. Más rápido y más barato.</div></div>
     </div>
     <div class="concept-card" onclick="toggleConcept(this)">
       <div class="concept-header"><div class="concept-left"><div><div class="concept-title">¿Qué es un Satoshi?</div><div class="concept-subtitle">La unidad mínima de Bitcoin</div></div></div><div class="concept-arrow">▼</div></div>
@@ -78,7 +78,7 @@
   </div>
   <div class="quiz-section">
     <div class="quiz-title">Pon a prueba lo aprendido</div>
-    <div class="quiz-sub">5 preguntas sobre Bitcoin y KinBit</div>
+    <div class="quiz-sub">5 preguntas sobre Bitcoin y kitBit</div>
     <div class="quiz-card" id="quizCard">
       <div class="quiz-progress"><span id="qNum">1 / 5</span><div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:20%"></div></div><span id="qScore">✓ 0</span></div>
       <div class="quiz-question" id="quizQuestion"></div>
@@ -92,14 +92,14 @@
 <!-- ══════ TAB 3: CÓMO FUNCIONA ══════ -->
 <div id="tab-como" class="tab-content">
   <div class="section-hero">
-    <h2><span style="color:var(--white)">Así funciona </span><span style="color:var(--orange);font-family:'Azonix',sans-serif;">KinBit</span></h2>
+    <h2><span style="color:var(--white)">Así funciona </span><span style="color:var(--orange);font-family:'Azonix',sans-serif;">kitBit</span></h2>
     <p>El comprador tiene la app. El vendedor solo necesita registrarse una vez.</p>
   </div>
   <div class="flow" id="flowSteps">
-    <div class="flow-step"><div class="step-number">01</div><div class="step-content"><h3>Vendedor se registra una sola vez</h3><p>Da su nombre, negocio, celular y ciudad. Elige si retira en OXXO o SPEI. KinBit le asigna su perfil.</p></div><span class="step-badge badge-vendor">Vendedor</span></div>
-    <div class="flow-step"><div class="step-number">02</div><div class="step-content"><h3>Comprador busca el negocio en la app</h3><p>El comprador abre KinBit, escribe el nombre del negocio o escanea el QR del vendedor.</p></div><span class="step-badge badge-client">Comprador</span></div>
+    <div class="flow-step"><div class="step-number">01</div><div class="step-content"><h3>Vendedor se registra una sola vez</h3><p>Da su nombre, negocio, celular y ciudad. Elige si retira en OXXO o SPEI. kitBit le asigna su perfil.</p></div><span class="step-badge badge-vendor">Vendedor</span></div>
+    <div class="flow-step"><div class="step-number">02</div><div class="step-content"><h3>Comprador busca el negocio en la app</h3><p>El comprador abre kitBit, escribe el nombre del negocio o escanea el QR del vendedor.</p></div><span class="step-badge badge-client">Comprador</span></div>
     <div class="flow-step"><div class="step-number">03</div><div class="step-content"><h3>Ingresa el monto y ve el desglose</h3><p>La app muestra cuántos BTC y sats equivalen al monto, la comisión real y si tiene saldo suficiente.</p></div><span class="step-badge badge-client">Comprador</span></div>
-    <div class="flow-step"><div class="step-number">04</div><div class="step-content"><h3>Se genera el QR Lightning para pagar</h3><p>KinBit genera un invoice Lightning por el monto exacto. El comprador confirma el pago.</p></div><span class="step-badge badge-system">Lightning</span></div>
+    <div class="flow-step"><div class="step-number">04</div><div class="step-content"><h3>Se genera el QR Lightning para pagar</h3><p>kitBit genera un invoice Lightning por el monto exacto. El comprador confirma el pago.</p></div><span class="step-badge badge-system">Lightning</span></div>
     <div class="flow-step"><div class="step-number">05</div><div class="step-content"><h3>Vendedor recibe SMS de confirmación</h3><p>"¡Cobro exitoso! $150.00 MXN" llega al celular del vendedor. Sin app, sin internet, sin complicaciones.</p></div><span class="step-badge badge-vendor">SMS</span></div>
     <div class="flow-step"><div class="step-number">06</div><div class="step-content"><h3>Vendedor retira su dinero</h3><p>Opción A: Genera código de barras OXXO y cobra efectivo en cualquier tienda. Opción B: Transfiere por SPEI a su banco.</p></div><span class="step-badge badge-vendor">Retiro</span></div>
   </div>
@@ -108,13 +108,13 @@
     <div class="actors-grid">
       <div class="actor-card"><div class="actor-emoji">📱</div><div class="actor-name">El Comprador</div><div class="actor-role">Tiene la app</div><div class="actor-desc">Paga con Bitcoin desde su wallet Lightning en cualquier negocio registrado.</div></div>
       <div class="actor-card"><div class="actor-emoji">👩‍🍳</div><div class="actor-name">Doña María</div><div class="actor-role">El Vendedor</div><div class="actor-desc">Solo se registra una vez. Recibe SMS y retira su dinero en OXXO o por SPEI.</div></div>
-      <div class="actor-card"><div class="actor-emoji">⚡</div><div class="actor-name">KinBit</div><div class="actor-role">El Sistema</div><div class="actor-desc">Conecta comprador y vendedor. Genera QR, confirma pago, envía SMS y gestiona el retiro.</div></div>
+      <div class="actor-card"><div class="actor-emoji">⚡</div><div class="actor-name">kitBit</div><div class="actor-role">El Sistema</div><div class="actor-desc">Conecta comprador y vendedor. Genera QR, confirma pago, envía SMS y gestiona el retiro.</div></div>
     </div>
   </div>
   <div class="comparison">
-    <h3>KinBit vs métodos tradicionales</h3>
+    <h3>kitBit vs métodos tradicionales</h3>
     <div class="compare-table">
-      <div class="compare-row header"><div class="label">Criterio</div><div class="val">Western Union</div><div class="val" style="color:var(--orange)">KinBit</div></div>
+      <div class="compare-row header"><div class="label">Criterio</div><div class="val">Western Union</div><div class="val" style="color:var(--orange)">kitBit</div></div>
       <div class="compare-row"><div class="label">Comisión</div><div class="val bad">7–10%</div><div class="val good">~0.5%</div></div>
       <div class="compare-row"><div class="label">Tiempo de llegada</div><div class="val bad">1–3 días</div><div class="val good">&lt; 3 segundos</div></div>
       <div class="compare-row"><div class="label">Requiere banco</div><div class="val bad">Sí</div><div class="val good">No (OXXO)</div></div>
@@ -201,7 +201,7 @@
           <div class="wallet-header-top">
             <div>
               <div class="wallet-nombre">Mi Wallet Lightning</div>
-              <div style="font-size:0.6rem;color:var(--gray);font-family:'Space Mono',monospace;margin-top:2px;" id="walletAddr">lnbc1kinbit...demo</div>
+              <div style="font-size:0.6rem;color:var(--gray);font-family:'Space Mono',monospace;margin-top:2px;" id="walletAddr">lnbc1kitbit...demo</div>
             </div>
             <div class="wallet-tipo">⚡ Lightning</div>
           </div>
@@ -220,7 +220,7 @@
     <div id="ctab-pagar" class="comprador-subtab" style="display:none">
       <div class="pago-card">
         <div class="pago-header">
-          <div class="pago-title">⚡ KinBit Pay</div>
+          <div class="pago-title">⚡ kitBit Pay</div>
           <div class="pago-status"><div class="ticker-dot"></div><span id="modoLabel">Listo</span></div>
         </div>
         <div class="pos-screen active" id="screen-buscar">
@@ -230,7 +230,7 @@
             <div class="negocio-encontrado" id="negocioEncontrado">
               <div class="negocio-nombre" id="negocioNombre"></div>
               <div class="negocio-info" id="negocioInfo"></div>
-              <div class="negocio-verde">✓ Negocio verificado en KinBit</div>
+              <div class="negocio-verde">✓ Negocio verificado en kitBit</div>
             </div>
           </div>
           <button class="pay-btn" id="btnIrMonto" onclick="showScreen('monto')" disabled>Continuar →</button>
@@ -268,7 +268,7 @@
             <div class="desglose-row"><span class="dl">Satoshis</span><span class="dv gold" id="calcSats">—</span></div>
             <div class="desglose-sep"></div>
             <div class="desglose-row"><span class="dl">Comisión Bitso (1.5%)</span><span class="dv" id="calcCom">—</span></div>
-            <div class="desglose-row"><span class="dl">Bonificación KinBit (15%)</span><span class="dv green" id="calcBono">—</span></div>
+            <div class="desglose-row"><span class="dl">Bonificación kitBit (15%)</span><span class="dv green" id="calcBono">—</span></div>
             <div class="desglose-row"><span class="dl">Comisión real</span><span class="dv" id="calcComReal">—</span></div>
             <div class="desglose-sep"></div>
             <div class="desglose-row"><span class="dl">Tu balance disponible</span><span class="dv gold" id="calcBalance">—</span></div>
@@ -359,7 +359,7 @@
   <div class="sim-wrapper">
     <div class="section-hero" style="padding:1.5rem 0 1.5rem">
       <h2><span style="color:var(--white)">Simulador </span><span style="color:var(--orange)">de Transacción</span></h2>
-      <p>Ve paso a paso qué sucede cuando un comprador paga con KinBit</p>
+      <p>Ve paso a paso qué sucede cuando un comprador paga con kitBit</p>
     </div>
     <div class="sim-escenario">
       <div class="sim-escenario-title">⚙️ Configura el escenario</div>
@@ -378,11 +378,11 @@
       <button class="btn-iniciar-sim" onclick="iniciarSim()">▶ Iniciar simulación</button>
     </div>
     <div class="sim-pasos" id="simPasos">
-      <div class="sim-paso" id="spaso1"><div class="sim-paso-num">01</div><div class="sim-paso-contenido"><h4>Comprador abre la app y busca el negocio</h4><p>El comprador con la app KinBit escribe el nombre del negocio para encontrarlo.</p><div class="sim-dato" id="sd1"></div></div><div class="sim-paso-icon">📱</div></div>
+      <div class="sim-paso" id="spaso1"><div class="sim-paso-num">01</div><div class="sim-paso-contenido"><h4>Comprador abre la app y busca el negocio</h4><p>El comprador con la app kitBit escribe el nombre del negocio para encontrarlo.</p><div class="sim-dato" id="sd1"></div></div><div class="sim-paso-icon">📱</div></div>
       <div class="sim-paso" id="spaso2"><div class="sim-paso-num">02</div><div class="sim-paso-contenido"><h4>Ingresa el monto y revisa el desglose</h4><p>Verifica cuántos sats son, la comisión real y si su balance alcanza.</p><div class="sim-dato" id="sd2"></div></div><div class="sim-paso-icon">💰</div></div>
-      <div class="sim-paso" id="spaso3"><div class="sim-paso-num">03</div><div class="sim-paso-contenido"><h4>KinBit genera invoice Lightning en Bitso</h4><p>El servidor crea un invoice por el monto exacto en BTC para pagar.</p><div class="sim-dato" id="sd3"></div></div><div class="sim-paso-icon">⚡</div></div>
+      <div class="sim-paso" id="spaso3"><div class="sim-paso-num">03</div><div class="sim-paso-contenido"><h4>kitBit genera invoice Lightning en Bitso</h4><p>El servidor crea un invoice por el monto exacto en BTC para pagar.</p><div class="sim-dato" id="sd3"></div></div><div class="sim-paso-icon">⚡</div></div>
       <div class="sim-paso" id="spaso4"><div class="sim-paso-num">04</div><div class="sim-paso-contenido"><h4>Comprador escanea QR y paga</h4><p>Lightning liquida la transacción en menos de 3 segundos.</p><div class="sim-dato" id="sd4"></div></div><div class="sim-paso-icon">✅</div></div>
-      <div class="sim-paso" id="spaso5"><div class="sim-paso-num">05</div><div class="sim-paso-contenido"><h4>Bitso convierte BTC → MXN</h4><p>Se aplica la comisión de 1.5% menos el 15% de bonificación KinBit.</p><div class="sim-dato" id="sd5"></div></div><div class="sim-paso-icon">₿→💵</div></div>
+      <div class="sim-paso" id="spaso5"><div class="sim-paso-num">05</div><div class="sim-paso-contenido"><h4>Bitso convierte BTC → MXN</h4><p>Se aplica la comisión de 1.5% menos el 15% de bonificación kitBit.</p><div class="sim-dato" id="sd5"></div></div><div class="sim-paso-icon">₿→💵</div></div>
       <div class="sim-paso" id="spaso6"><div class="sim-paso-num">06</div><div class="sim-paso-contenido"><h4>SMS de confirmación al vendedor</h4><p>Twilio envía automáticamente el SMS al celular del vendedor.</p><div class="sim-dato" id="sd6"></div></div><div class="sim-paso-icon">📱</div></div>
       <div class="sim-paso" id="spaso7"><div class="sim-paso-num">07</div><div class="sim-paso-contenido"><h4>Se genera código de retiro</h4><p>Dependiendo del método elegido: código de barras OXXO o instrucciones SPEI.</p><div class="sim-dato" id="sd7"></div></div><div class="sim-paso-icon">🏪</div></div>
     </div>
@@ -399,11 +399,11 @@
   <div class="diagrama-wrapper">
     <div class="section-hero" style="padding:1.5rem 0 1.5rem">
       <h2><span style="color:var(--white)">Diagrama </span><span style="color:var(--orange)">del Sistema</span></h2>
-      <p>Flujo completo de una transacción KinBit</p>
+      <p>Flujo completo de una transacción kitBit</p>
     </div>
     <div class="diagrama-actores">
       <div class="actor-box actor-vendedor"><div class="actor-box-icon">👩‍🍳</div><div class="actor-box-name">Vendedor</div><div class="actor-box-sub">Sin app</div></div>
-      <div class="actor-box actor-sistema"><div class="actor-box-icon">₿</div><div class="actor-box-name">KinBit</div><div class="actor-box-sub">+ Bitso + Twilio</div></div>
+      <div class="actor-box actor-sistema"><div class="actor-box-icon">₿</div><div class="actor-box-name">kitBit</div><div class="actor-box-sub">+ Bitso + Twilio</div></div>
       <div class="actor-box actor-cliente"><div class="actor-box-icon">📱</div><div class="actor-box-name">Comprador</div><div class="actor-box-sub">Tiene la app</div></div>
     </div>
     <div class="diagrama-flujo">
@@ -439,7 +439,7 @@
     <!-- Hero -->
     <div class="pro-hero">
       <div class="pro-badge">⭐ SUSCRIPCIÓN MENSUAL</div>
-      <h2><span class="pro-highlight">KinBit</span> <span style="color:var(--white)">Pro</span></h2>
+      <h2><span class="pro-highlight">kitBit</span> <span style="color:var(--white)">Pro</span></h2>
       <p class="pro-hero-sub">
         Potencia tu negocio con herramientas avanzadas.<br/>
         <strong>Todo lo de la versión gratuita, y mucho más.</strong>
@@ -464,7 +464,7 @@
     </div>
 
     <!-- Features -->
-    <h3 style="text-align:center;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:1.25rem;">¿Qué incluye KinBit Pro?</h3>
+    <h3 style="text-align:center;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:1.25rem;">¿Qué incluye kitBit Pro?</h3>
     <div class="pro-features-grid">
       <div class="pro-feature-card">
         <div class="pro-feat-icon">📊</div>
@@ -541,16 +541,16 @@
       </div>
       <div class="pro-faq-item" onclick="toggleProFaq(this)">
         <div class="pro-faq-q">¿Funciona Pro si no tengo smartphone? <span class="pro-faq-arrow">▼</span></div>
-        <div class="pro-faq-a">¡Sí! Los SMS ilimitados y el panel de ventas están disponibles también desde cualquier computadora. No necesitas smartphone para aprovechar KinBit Pro como vendedor.</div>
+        <div class="pro-faq-a">¡Sí! Los SMS ilimitados y el panel de ventas están disponibles también desde cualquier computadora. No necesitas smartphone para aprovechar kitBit Pro como vendedor.</div>
       </div>
     </div>
 
     <!-- CTA final -->
     <div class="pro-bottom-cta">
       <h3>¿Listo para hacer crecer tu negocio?</h3>
-      <p>Únete a KinBit Pro y acepta pagos Bitcoin como un profesional.<br/>Sin banco. Sin complicaciones. Solo $350 al mes.</p>
+      <p>Únete a kitBit Pro y acepta pagos Bitcoin como un profesional.<br/>Sin banco. Sin complicaciones. Solo $350 al mes.</p>
       <button class="pro-cta-btn" style="max-width:320px;margin:0 auto;display:block;" onclick="alert('¡Gracias por tu interés! Muy pronto disponible. Te avisaremos por SMS cuando esté activo.')">
-        ⭐ Empezar con KinBit Pro
+        ⭐ Empezar con kitBit Pro
       </button>
     </div>
 
@@ -577,7 +577,7 @@
   </div>
 </div>
 
-<footer><p>₿ <span>KinBit</span> — El dinero del sol para el comercio mexicano · 2025</p></footer>
+<footer><p>₿ <span>kitBit</span> — El dinero del sol para el comercio mexicano · 2025</p></footer>
 
 <script src="script.js"></script>
 </body>

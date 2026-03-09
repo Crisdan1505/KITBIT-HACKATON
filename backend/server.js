@@ -1,7 +1,7 @@
 // ── VERIFICAR NODE VERSION ──────────────────────────────────────────
 const [major] = process.versions.node.split('.').map(Number);
 if (major < 18) {
-  console.error(`\n❌  KinBit requiere Node.js 18+. Tienes Node ${process.version}\n`);
+  console.error(`\n❌  kitBit requiere Node.js 18+. Tienes Node ${process.version}\n`);
   process.exit(1);
 }
 
@@ -42,7 +42,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // ── FRONTEND ESTÁTICO ───────────────────────────────────────────────
-app.get('/', (req, res) => res.sendFile(require('path').join(__dirname, '../frontend/KinBit.html')));
+app.get('/', (req, res) => res.sendFile(require('path').join(__dirname, '../frontend/kitBit.html')));
 app.use(express.static(path.join(__dirname, '../frontend')));
 
 // ── RUTAS DE API ────────────────────────────────────────────────────
@@ -61,7 +61,7 @@ app.get('/cobro/:invoice_id', (req, res) => {
 // ── RUTA DE SALUD ───────────────────────────────────────────────────
 app.get('/api/status', (req, res) => {
   res.json({
-    sistema: '₿ KinBit Backend',
+    sistema: '₿ kitBit Backend',
     estado:  'activo',
     version: '2.1.0',
     modo:    process.env.BITSO_API_KEY === 'demo' ? 'DEMO' : 'PRODUCCIÓN',
@@ -93,7 +93,7 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log('');
-  console.log('₿  KinBit Backend v2.1 corriendo');
+  console.log('₿  kitBit Backend v2.1 corriendo');
   console.log(`   Local:    http://localhost:${PORT}`);
   console.log(`   Público:  ${process.env.BASE_URL || '⚠️  No configurado'}`);
   console.log(`   Modo:     ${process.env.BITSO_API_KEY === 'demo' ? '⚡ DEMO' : '🟢 PRODUCCIÓN'}`);

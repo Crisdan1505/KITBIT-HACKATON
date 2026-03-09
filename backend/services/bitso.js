@@ -107,7 +107,7 @@ async function calcularConversion(monto_mxn) {
     btc_necesario:       btc_necesario.toFixed(8),
     sats,
     comision_bitso:      comision_bitso.toFixed(2),
-    bonificacion_kinbit: bonificacion.toFixed(2),
+    bonificacion_kitbit: bonificacion.toFixed(2),
     comision_real:       comision_real.toFixed(2),
     total_final:         total_final.toFixed(2),
     demo:                MODO_DEMO
@@ -126,7 +126,7 @@ async function generarInvoice(monto_mxn) {
     const body  = JSON.stringify({
       amount:      monto_mxn,
       currency:    'MXN',
-      description: `Pago KinBit $${monto_mxn} MXN`
+      description: `Pago kitBit $${monto_mxn} MXN`
     });
     const firma = firmarBitso(nonce, 'POST', path, body);
 

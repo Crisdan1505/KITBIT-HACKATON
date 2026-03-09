@@ -24,7 +24,7 @@ async function notificarVendedor(monto, referencia, telefonoVendedor) {
   }
 
   const mensaje =
-    `₿ KinBit — Pago recibido!\n` +
+    `₿ kitBit — Pago recibido!\n` +
     `Monto: $${Number(monto).toFixed(2)} MXN\n` +
     `Ref: ${referencia}`;
 

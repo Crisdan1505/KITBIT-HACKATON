@@ -1,5 +1,5 @@
 {
-  "name": "kinbit-backend",
+  "name": "kitbit-backend",
   "version": "2.1.0",
   "description": "Terminal de cobro Bitcoin Lightning vía SMS",
   "main": "backend/server.js",

@@ -48,7 +48,7 @@ router.post('/', validarFirmaTwilio, async (req, res) => {
   if (!esTelefonoRegistrado(From)) {
     console.warn(`🚨 [SMS] Número no registrado intentó usar el sistema: ${From}`);
     await responderVendedor(From,
-      `KinBit ₿ — Número no autorizado. Regístrate en ${process.env.BASE_URL}`
+      `kitBit ₿ — Número no autorizado. Regístrate en ${process.env.BASE_URL}`
     );
     return res.send('ok');
   }
@@ -58,7 +58,7 @@ router.post('/', validarFirmaTwilio, async (req, res) => {
   // Si no es un número válido, instruir al vendedor
   if (isNaN(monto) || monto <= 0) {
     await responderVendedor(From,
-      `KinBit ₿ — Manda el monto en MXN.\nEjemplo: "150"\nPara cobrar $150 pesos.`
+      `kitBit ₿ — Manda el monto en MXN.\nEjemplo: "150"\nPara cobrar $150 pesos.`
     );
     return res.send('ok');
   }
@@ -66,7 +66,7 @@ router.post('/', validarFirmaTwilio, async (req, res) => {
   // Límite anti-lavado (igual que en validarMonto.js)
   if (monto > 50000) {
     await responderVendedor(From,
-      `KinBit ₿ — El monto $${monto} supera el límite de $50,000 MXN.`
+      `kitBit ₿ — El monto $${monto} supera el límite de $50,000 MXN.`
     );
     return res.send('ok');
   }
@@ -76,7 +76,7 @@ router.post('/', validarFirmaTwilio, async (req, res) => {
 
   if (!invoice.ok) {
     await responderVendedor(From,
-      `KinBit ₿ — Error al generar cobro. Intenta en un momento.`
+      `kitBit ₿ — Error al generar cobro. Intenta en un momento.`
     );
     return res.send('ok');
   }
@@ -92,7 +92,7 @@ router.post('/', validarFirmaTwilio, async (req, res) => {
   const mensajeModo = invoice.demo ? ' [DEMO]' : '';
 
   await responderVendedor(From,
-    `KinBit ₿${mensajeModo} — Cobra $${monto} MXN\n` +
+    `kitBit ₿${mensajeModo} — Cobra $${monto} MXN\n` +
     `🔗 ${link}\n` +
     `Muéstrale este link al cliente.\n` +
     `Expira en 5 minutos.`

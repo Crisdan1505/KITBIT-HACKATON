@@ -70,7 +70,7 @@ function verificarAlcanza() {
 function abrirModal(id) {
   document.getElementById(id).classList.add('visible');
   if (id === 'modalRecibir') {
-    const addr = 'lnbc1kinbit' + Math.random().toString(36).slice(2,20);
+    const addr = 'lnbc1kitbit' + Math.random().toString(36).slice(2,20);
     document.getElementById('walletAddr').textContent = addr.slice(0,22) + '...';
     document.getElementById('modalQRImg').src = `https://api.qrserver.com/v1/create-qr-code/?size=170x170&data=${encodeURIComponent(addr)}&margin=6`;
   }
@@ -293,7 +293,7 @@ function confirmarPago() {
     document.getElementById('successAmount').textContent = '$'+mxn.toFixed(2)+' MXN';
     document.getElementById('successSats').textContent   = '≈ '+sats.toLocaleString('es-MX')+' sats · Lightning';
     document.getElementById('smsPreview').innerHTML =
-      '✅ KinBit — ¡Cobro exitoso!<br/>💰 Monto: <span class="highlight">$'+mxn.toFixed(2)+' MXN</span><br/>🔖 Ref: '+ref+'<br/>🕐 '+new Date().toLocaleTimeString('es-MX');
+      '✅ kitBit — ¡Cobro exitoso!<br/>💰 Monto: <span class="highlight">$'+mxn.toFixed(2)+' MXN</span><br/>🔖 Ref: '+ref+'<br/>🕐 '+new Date().toLocaleTimeString('es-MX');
 
     generarCodigoRetiro(mxn, ref);
     actualizarWallet();
@@ -315,7 +315,7 @@ function generarCodigoRetiro(mxn, ref) {
       <div class="spei-row"><span class="sk">Banco destino</span><span class="sv">BANAMEX</span></div>
       <div class="spei-row"><span class="sk">CLABE</span><span class="sv">${clabe}</span></div>
       <div class="spei-row"><span class="sk">Monto</span><span class="sv">$${mxn.toFixed(2)} MXN</span></div>
-      <div class="spei-row"><span class="sk">Concepto</span><span class="sv">KinBit ${ref}</span></div>
+      <div class="spei-row"><span class="sk">Concepto</span><span class="sv">kitBit ${ref}</span></div>
       <div class="spei-row"><span class="sk">Referencia</span><span class="sv">${ref}</span></div>`;
   }
 
@@ -386,14 +386,14 @@ function iniciarSim() {
 
   const datos = [
     `Comprador busca "${vendedor}" en la app → Negocio encontrado y verificado ✓`,
-    `Monto: $${monto} MXN → ${btc} BTC (${sats.toLocaleString('es-MX')} sats) · Comisión real: $${comReal} MXN (bonificación KinBit: -$${bono})`,
+    `Monto: $${monto} MXN → ${btc} BTC (${sats.toLocaleString('es-MX')} sats) · Comisión real: $${comReal} MXN (bonificación kitBit: -$${bono})`,
     `Invoice generado: ${invoice}... · Expira en 5 minutos`,
     `Pago Lightning confirmado en 2.3 segundos · TX: ${ref}`,
-    `Conversión: ${btc} BTC → $${monto} MXN · Comisión Bitso: $${com} · Ahorro KinBit: $${bono}`,
-    `SMS enviado a ${celular}: "✅ KinBit ¡Cobro exitoso! $${monto} MXN · Ref: ${ref}"`,
+    `Conversión: ${btc} BTC → $${monto} MXN · Comisión Bitso: $${com} · Ahorro kitBit: $${bono}`,
+    `SMS enviado a ${celular}: "✅ kitBit ¡Cobro exitoso! $${monto} MXN · Ref: ${ref}"`,
     retiro === 'oxxo'
       ? `Código OXXO generado: ${codigoRetiro} · Válido 24h en cualquier OXXO del país`
-      : `SPEI iniciado → CLABE destino del vendedor · $${monto} MXN · Concepto: KinBit ${ref}`
+      : `SPEI iniciado → CLABE destino del vendedor · $${monto} MXN · Concepto: kitBit ${ref}`
   ];
 
   simPasoActual = 0;
@@ -448,9 +448,9 @@ function toggleProFaq(item) {
 const questions = [
   {q:'¿Cuántos satoshis tiene un Bitcoin?',opts:['1,000','1,000,000','100,000,000','21,000,000'],correct:2,feedback:'✓ Un Bitcoin = 100 millones de satoshis.'},
   {q:'¿Cuánto tiempo tarda un pago Lightning?',opts:['1-3 días','10-60 min','Menos de 3 seg','1 hora'],correct:2,feedback:'✓ Lightning liquida en menos de 3 segundos.'},
-  {q:'¿Quién tiene la app KinBit?',opts:['El vendedor','El dueño del OXXO','El comprador','El banco'],correct:2,feedback:'✓ El comprador usa la app para pagar. El vendedor solo se registra.'},
+  {q:'¿Quién tiene la app kitBit?',opts:['El vendedor','El dueño del OXXO','El comprador','El banco'],correct:2,feedback:'✓ El comprador usa la app para pagar. El vendedor solo se registra.'},
   {q:'¿Cómo retira su dinero el vendedor sin banco?',opts:['Cajero automático','OXXO con código de barras','Western Union','Transferencia bancaria'],correct:1,feedback:'✓ El vendedor puede cobrar efectivo en cualquier OXXO con su código.'},
-  {q:'¿Cuánto cobra Western Union vs KinBit?',opts:['Igual, 0.5%','WU 7-10% vs KinBit 0.5%','Ambos cobran 3%','KinBit cobra más'],correct:1,feedback:'✓ Western Union 7–10% vs KinBit ~0.5%. Un ahorro enorme.'}
+  {q:'¿Cuánto cobra Western Union vs kitBit?',opts:['Igual, 0.5%','WU 7-10% vs kitBit 0.5%','Ambos cobran 3%','kitBit cobra más'],correct:1,feedback:'✓ Western Union 7–10% vs kitBit ~0.5%. Un ahorro enorme.'}
 ];
 let currentQ=0,score=0,answered=false;
 
@@ -486,7 +486,7 @@ function answerQuestion(idx,btn) {
 function nextQuestion(){currentQ++;loadQuestion();}
 
 function showScore(){
-  document.getElementById('quizCard').innerHTML=`<div class="score-display"><div class="big-score">${score}/${questions.length}</div><p>${score>=4?'¡Excelente! Ya entiendes KinBit mejor que el 90% de México':score>=3?'¡Bien hecho! ₿':'Repasa los conceptos e inténtalo de nuevo'}</p><button class="btn-primary" style="margin-top:1.1rem;font-size:0.88rem;padding:0.72rem 2rem" onclick="restartQuiz()">Intentar de nuevo</button></div>`;
+  document.getElementById('quizCard').innerHTML=`<div class="score-display"><div class="big-score">${score}/${questions.length}</div><p>${score>=4?'¡Excelente! Ya entiendes kitBit mejor que el 90% de México':score>=3?'¡Bien hecho! ₿':'Repasa los conceptos e inténtalo de nuevo'}</p><button class="btn-primary" style="margin-top:1.1rem;font-size:0.88rem;padding:0.72rem 2rem" onclick="restartQuiz()">Intentar de nuevo</button></div>`;
 }
 
 function restartQuiz(){
