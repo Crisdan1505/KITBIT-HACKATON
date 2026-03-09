@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KinBit — El dinero del sol</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">₿ <span>Kin</span>Bit</div>
+  <ul class="nav-tabs">
+    <li><button class="active" onclick="switchTab('inicio')">Inicio</button></li>
+    <li><button onclick="switchTab('aprende')">Aprende</button></li>
+    <li><button onclick="switchTab('como')">¿Cómo funciona?</button></li>
+    <li><button onclick="switchTab('vendedor')">🏪 Soy Vendedor</button></li>
+    <li><button onclick="switchTab('comprador')">📱 Soy Comprador</button></li>
+    <li><button onclick="switchTab('simulador')">Simulador</button></li>
+    <li><button onclick="switchTab('diagrama')">Diagrama</button></li>
+    <li><button onclick="switchTab('pro')" style="color:#F7931A;">⭐ Pro</button></li>
+  </ul>
+  <div class="ticker"><div class="ticker-dot"></div><span id="btcPrice">cargando...</span></div>
+</nav>
+
+<!-- ══════ TAB 1: INICIO ══════ -->
+<div id="tab-inicio" class="tab-content active">
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-badge">₿ Bitcoin · Lightning Network · México</div>
+    <h1><span class="kin">Kin</span><span class="bit">Bit</span></h1>
+    <p class="hero-sub">Paga con Bitcoin en cualquier negocio.<br/><strong>El vendedor cobra en pesos. Sin banco. Sin app.</strong></p>
+    <div class="hero-roles">
+      <div class="role-card comprador" onclick="switchTab('comprador')">
+        <div class="role-icon">📱</div>
+        <div class="role-title">Soy Comprador</div>
+        <div class="role-desc">Tengo la app. Pago con Bitcoin en negocios registrados.</div>
+      </div>
+      <div class="role-card vendedor" onclick="switchTab('vendedor')">
+        <div class="role-icon">🏪</div>
+        <div class="role-title">Soy Vendedor</div>
+        <div class="role-desc">Registro mi negocio y recibo pagos sin smartphone ni banco.</div>
+      </div>
+    </div>
+  </section>
+  <div class="stats">
+    <div class="stat-card"><div class="stat-number">30M+</div><div class="stat-label">trabajadores informales en México (INEGI 2024)</div></div>
+    <div class="stat-card"><div class="stat-number">49%</div><div class="stat-label">de mexicanos sin acceso a servicios bancarios formales</div></div>
+    <div class="stat-card"><div class="stat-number">7–10%</div><div class="stat-label">cobra Western Union por transferencias internacionales</div></div>
+    <div class="stat-card"><div class="stat-number">~0.5%</div><div class="stat-label">comisión total con KinBit vía Lightning Network</div></div>
+  </div>
+</div>
+
+<!-- ══════ TAB 2: APRENDE ══════ -->
+<div id="tab-aprende" class="tab-content">
+  <div class="section-hero">
+    <h2><span style="color:var(--white)">Bitcoin</span> <span style="color:var(--orange)">sin tecnicismos</span></h2>
+    <p>Conceptos clave explicados en lenguaje cotidiano mexicano.</p>
+  </div>
+  <div class="concepts">
+    <div class="concept-card" onclick="toggleConcept(this)">
+      <div class="concept-header"><div class="concept-left"><div><div class="concept-title">¿Qué es Bitcoin?</div><div class="concept-subtitle">La moneda digital descentralizada</div></div></div><div class="concept-arrow">▼</div></div>
+      <div class="concept-body"><p>Bitcoin es una moneda digital que no controla ningún banco ni gobierno. Funciona gracias a miles de computadoras que verifican cada transacción en un libro público llamado blockchain.</p><div class="concept-analogy"><strong>Analogía:</strong> Como el oro digital — escaso, global, y nadie puede imprimir más. Solo existirán 21 millones de bitcoins.</div></div>
+    </div>
+    <div class="concept-card" onclick="toggleConcept(this)">
+      <div class="concept-header"><div class="concept-left"><div><div class="concept-title">Lightning Network</div><div class="concept-subtitle">Pagos instantáneos en Bitcoin</div></div></div><div class="concept-arrow">▼</div></div>
+      <div class="concept-body"><p>Lightning Network permite pagos en menos de 3 segundos con comisiones casi cero. KinBit usa Lightning para que el pago llegue al instante.</p><div class="concept-analogy"><strong>Analogía:</strong> Si Bitcoin es la carretera federal, Lightning es el carril rápido de cuota. Más rápido y más barato.</div></div>
+    </div>
+    <div class="concept-card" onclick="toggleConcept(this)">
+      <div class="concept-header"><div class="concept-left"><div><div class="concept-title">¿Qué es un Satoshi?</div><div class="concept-subtitle">La unidad mínima de Bitcoin</div></div></div><div class="concept-arrow">▼</div></div>
+      <div class="concept-body"><p>Un Bitcoin = 100 millones de satoshis. Como los centavos del peso, pero hay 100 millones por cada bitcoin. Los pagos cotidianos se hacen en sats.</p><div class="concept-analogy"><strong>Ejemplo:</strong> $150 pesos ≈ 8,333 sats al precio actual.</div></div>
+    </div>
+    <div class="concept-card" onclick="toggleConcept(this)">
+      <div class="concept-header"><div class="concept-left"><div><div class="concept-title">Retiro en OXXO y SPEI</div><div class="concept-subtitle">Cómo el vendedor cobra en efectivo</div></div></div><div class="concept-arrow">▼</div></div>
+      <div class="concept-body"><p>El vendedor recibe el pago en Bitcoin via Bitso. Para cobrar en efectivo tiene dos opciones: generar un código de barras y cobrarlo en cualquier OXXO del país, o transferir el dinero por SPEI a su cuenta bancaria si tiene una.</p><div class="concept-analogy"><strong>Ventaja:</strong> Con OXXO el vendedor no necesita cuenta bancaria. Solo presenta el código en la tienda y recibe efectivo.</div></div>
+    </div>
+  </div>
+  <div class="quiz-section">
+    <div class="quiz-title">Pon a prueba lo aprendido</div>
+    <div class="quiz-sub">5 preguntas sobre Bitcoin y KinBit</div>
+    <div class="quiz-card" id="quizCard">
+      <div class="quiz-progress"><span id="qNum">1 / 5</span><div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:20%"></div></div><span id="qScore">✓ 0</span></div>
+      <div class="quiz-question" id="quizQuestion"></div>
+      <div class="quiz-options" id="quizOptions"></div>
+      <div class="quiz-feedback" id="quizFeedback"></div>
+      <div class="quiz-next" id="quizNext"><button class="btn-primary" style="width:100%;font-size:0.9rem;padding:0.75rem" onclick="nextQuestion()">Siguiente →</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ TAB 3: CÓMO FUNCIONA ══════ -->
+<div id="tab-como" class="tab-content">
+  <div class="section-hero">
+    <h2><span style="color:var(--white)">Así funciona </span><span style="color:var(--orange);font-family:'Azonix',sans-serif;">KinBit</span></h2>
+    <p>El comprador tiene la app. El vendedor solo necesita registrarse una vez.</p>
+  </div>
+  <div class="flow" id="flowSteps">
+    <div class="flow-step"><div class="step-number">01</div><div class="step-content"><h3>Vendedor se registra una sola vez</h3><p>Da su nombre, negocio, celular y ciudad. Elige si retira en OXXO o SPEI. KinBit le asigna su perfil.</p></div><span class="step-badge badge-vendor">Vendedor</span></div>
+    <div class="flow-step"><div class="step-number">02</div><div class="step-content"><h3>Comprador busca el negocio en la app</h3><p>El comprador abre KinBit, escribe el nombre del negocio o escanea el QR del vendedor.</p></div><span class="step-badge badge-client">Comprador</span></div>
+    <div class="flow-step"><div class="step-number">03</div><div class="step-content"><h3>Ingresa el monto y ve el desglose</h3><p>La app muestra cuántos BTC y sats equivalen al monto, la comisión real y si tiene saldo suficiente.</p></div><span class="step-badge badge-client">Comprador</span></div>
+    <div class="flow-step"><div class="step-number">04</div><div class="step-content"><h3>Se genera el QR Lightning para pagar</h3><p>KinBit genera un invoice Lightning por el monto exacto. El comprador confirma el pago.</p></div><span class="step-badge badge-system">Lightning</span></div>
+    <div class="flow-step"><div class="step-number">05</div><div class="step-content"><h3>Vendedor recibe SMS de confirmación</h3><p>"¡Cobro exitoso! $150.00 MXN" llega al celular del vendedor. Sin app, sin internet, sin complicaciones.</p></div><span class="step-badge badge-vendor">SMS</span></div>
+    <div class="flow-step"><div class="step-number">06</div><div class="step-content"><h3>Vendedor retira su dinero</h3><p>Opción A: Genera código de barras OXXO y cobra efectivo en cualquier tienda. Opción B: Transfiere por SPEI a su banco.</p></div><span class="step-badge badge-vendor">Retiro</span></div>
+  </div>
+  <div class="actors">
+    <h3>Los actores del sistema</h3>
+    <div class="actors-grid">
+      <div class="actor-card"><div class="actor-emoji">📱</div><div class="actor-name">El Comprador</div><div class="actor-role">Tiene la app</div><div class="actor-desc">Paga con Bitcoin desde su wallet Lightning en cualquier negocio registrado.</div></div>
+      <div class="actor-card"><div class="actor-emoji">👩‍🍳</div><div class="actor-name">Doña María</div><div class="actor-role">El Vendedor</div><div class="actor-desc">Solo se registra una vez. Recibe SMS y retira su dinero en OXXO o por SPEI.</div></div>
+      <div class="actor-card"><div class="actor-emoji">⚡</div><div class="actor-name">KinBit</div><div class="actor-role">El Sistema</div><div class="actor-desc">Conecta comprador y vendedor. Genera QR, confirma pago, envía SMS y gestiona el retiro.</div></div>
+    </div>
+  </div>
+  <div class="comparison">
+    <h3>KinBit vs métodos tradicionales</h3>
+    <div class="compare-table">
+      <div class="compare-row header"><div class="label">Criterio</div><div class="val">Western Union</div><div class="val" style="color:var(--orange)">KinBit</div></div>
+      <div class="compare-row"><div class="label">Comisión</div><div class="val bad">7–10%</div><div class="val good">~0.5%</div></div>
+      <div class="compare-row"><div class="label">Tiempo de llegada</div><div class="val bad">1–3 días</div><div class="val good">&lt; 3 segundos</div></div>
+      <div class="compare-row"><div class="label">Requiere banco</div><div class="val bad">Sí</div><div class="val good">No (OXXO)</div></div>
+      <div class="compare-row"><div class="label">Disponible 24/7</div><div class="val bad">No</div><div class="val good">Sí</div></div>
+      <div class="compare-row"><div class="label">Retiro en efectivo</div><div class="val neu">Limitado</div><div class="val good">OXXO o SPEI</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ TAB 4: SOY VENDEDOR ══════ -->
+<div id="tab-vendedor" class="tab-content">
+  <div class="vendedor-wrapper">
+    <div class="section-hero" style="padding:1.5rem 0 1.5rem">
+      <h2><span style="color:var(--white)">Registro </span><span style="color:var(--green)">del Vendedor</span></h2>
+      <p>Solo necesitas 2 minutos. Sin banco. Sin costo.</p>
+    </div>
+    <div class="form-card">
+      <div class="form-card-header">
+        <div class="form-card-title">🏪 Datos del negocio</div>
+        <div class="form-card-step">Paso 1 de 2</div>
+      </div>
+      <div class="form-card-body" id="form-registro">
+        <label class="campo-label">Nombre completo del vendedor</label>
+        <input class="campo-input" type="text" id="regNombre" placeholder="Ej: María González López" />
+        <label class="campo-label">Nombre del negocio</label>
+        <input class="campo-input" type="text" id="regNegocio" placeholder="Ej: Tacos Doña María" />
+        <label class="campo-label">Ciudad o colonia</label>
+        <input class="campo-input" type="text" id="regCiudad" placeholder="Ej: Mérida, Yucatán" />
+        <label class="campo-label">Número de celular (recibirá SMS aquí)</label>
+        <input class="campo-input" type="tel" id="regTelefono" placeholder="+521234567890" />
+        <p class="campo-hint">Incluye código de país: +52 para México</p>
+        <div class="form-separador">
+          <div class="form-separador-label">💰 Método de retiro de dinero</div>
+          <div class="retiro-opciones">
+            <div class="retiro-opcion selected" id="opcionOXXO" onclick="seleccionarRetiro('oxxo')">
+              <div class="ro-icon">🏪</div>
+              <div class="ro-label">Retiro OXXO</div>
+              <div class="ro-desc">Cobra efectivo en cualquier OXXO. Sin banco.</div>
+            </div>
+            <div class="retiro-opcion" id="opcionSPEI" onclick="seleccionarRetiro('spei')">
+              <div class="ro-icon">🏦</div>
+              <div class="ro-label">SPEI / Banco</div>
+              <div class="ro-desc">Transferencia directa a tu cuenta bancaria.</div>
+            </div>
+          </div>
+          <div class="retiro-campos visible" id="camposOXXO">
+            <label class="campo-label">Cuenta Bitso (email registrado en Bitso)</label>
+            <input class="campo-input" type="email" id="regBitso" placeholder="correo@ejemplo.com" />
+            <p class="campo-hint">Necesitas cuenta en Bitso para retiros OXXO. Es gratis y sin banco.</p>
+          </div>
+          <div class="retiro-campos" id="camposSPEI">
+            <label class="campo-label">CLABE interbancaria (18 dígitos)</label>
+            <input class="campo-input" type="text" id="regCLABE" placeholder="012345678901234567" maxlength="18" />
+            <p class="campo-hint">CLABE de tu cuenta bancaria para recibir transferencias SPEI.</p>
+          </div>
+        </div>
+        <button class="registro-btn" onclick="registrarVendedor()">✓ Registrar mi negocio →</button>
+      </div>
+      <div class="form-card-body registro-exito" id="exito-registro">
+        <div class="exito-icon">✅</div>
+        <h3>¡Negocio registrado!</h3>
+        <p>A partir de ahora recibirás un SMS a:</p>
+        <div class="numero-registrado" id="numRegistrado"></div>
+        <div class="perfil-vendedor" id="perfilVendedor"></div>
+        <p style="font-size:0.75rem;color:var(--gray);margin-top:0.5rem;">Cuando un comprador te pague, llegará el SMS y podrás generar tu código de retiro desde esta sección.</p>
+        <button class="registro-nuevo" onclick="nuevoRegistro()">← Registrar otro negocio</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ TAB 5: SOY COMPRADOR ══════ -->
+<div id="tab-comprador" class="tab-content">
+  <div class="comprador-wrapper">
+    <div class="comprador-tabs">
+      <button class="comprador-tab active" onclick="switchCompradorTab('wallet')">💳 Wallet</button>
+      <button class="comprador-tab" onclick="switchCompradorTab('pagar')">⚡ Pagar</button>
+      <button class="comprador-tab" onclick="switchCompradorTab('historial')">📋 Historial</button>
+    </div>
+    <!-- SUB-TAB: WALLET -->
+    <div id="ctab-wallet" class="comprador-subtab">
+      <div class="wallet-card">
+        <div class="wallet-header">
+          <div class="wallet-header-top">
+            <div>
+              <div class="wallet-nombre">Mi Wallet Lightning</div>
+              <div style="font-size:0.6rem;color:var(--gray);font-family:'Space Mono',monospace;margin-top:2px;" id="walletAddr">lnbc1kinbit...demo</div>
+            </div>
+            <div class="wallet-tipo">⚡ Lightning</div>
+          </div>
+          <div class="wallet-balance-label">Balance disponible</div>
+          <div class="wallet-balance-btc" id="walletBtc">0.00082340 BTC</div>
+          <div class="wallet-balance-mxn" id="walletMxn">≈ $1,440.95 MXN</div>
+          <div class="wallet-balance-sats" id="walletSats">82,340 satoshis</div>
+        </div>
+        <div class="wallet-acciones">
+          <button class="wallet-btn enviar" onclick="abrirModal('modalEnviar')"><span class="bicon">↗️</span><span>Enviar</span></button>
+          <button class="wallet-btn recibir" onclick="abrirModal('modalRecibir')"><span class="bicon">↙️</span><span>Recibir</span></button>
+        </div>
+      </div>
+    </div>
+    <!-- SUB-TAB: PAGAR -->
+    <div id="ctab-pagar" class="comprador-subtab" style="display:none">
+      <div class="pago-card">
+        <div class="pago-header">
+          <div class="pago-title">⚡ KinBit Pay</div>
+          <div class="pago-status"><div class="ticker-dot"></div><span id="modoLabel">Listo</span></div>
+        </div>
+        <div class="pos-screen active" id="screen-buscar">
+          <div class="buscar-negocio">
+            <p style="font-size:0.78rem;color:var(--gray);margin-bottom:0.75rem;">Busca el negocio donde vas a pagar o pide al vendedor su nombre registrado.</p>
+            <input class="buscar-input" type="text" id="buscarInput" placeholder="🔍 Nombre del negocio..." oninput="buscarNegocio(this.value)" />
+            <div class="negocio-encontrado" id="negocioEncontrado">
+              <div class="negocio-nombre" id="negocioNombre"></div>
+              <div class="negocio-info" id="negocioInfo"></div>
+              <div class="negocio-verde">✓ Negocio verificado en KinBit</div>
+            </div>
+          </div>
+          <button class="pay-btn" id="btnIrMonto" onclick="showScreen('monto')" disabled>Continuar →</button>
+        </div>
+        <div class="pos-screen" id="screen-monto">
+          <div class="balance-banner">
+            <div class="balance-banner-left">
+              <div class="bb-label">Tu balance Lightning</div>
+              <div class="bb-btc" id="bbBtc">0.00082340 BTC</div>
+              <div class="bb-mxn" id="bbMxn">≈ $1,440.95 MXN</div>
+            </div>
+            <div id="alcanzaBadge" class="alcanza-badge si">✓ Te alcanza</div>
+          </div>
+          <div class="btc-price-row"><span>BTC/MXN:</span><span class="btc-price-val" id="appBtcPrice">cargando...</span></div>
+          <div class="qr-amount-label">¿Cuánto vas a pagar?</div>
+          <input class="qr-amount-input" type="number" id="amountInput" placeholder="0.00" min="1" step="10" />
+          <p class="qr-hint">≈ <span id="satsDisplay">— sats</span></p>
+          <div class="montos-rapidos">
+            <button class="monto-btn" onclick="setMonto(50)">$50</button>
+            <button class="monto-btn" onclick="setMonto(100)">$100</button>
+            <button class="monto-btn" onclick="setMonto(250)">$250</button>
+            <button class="monto-btn" onclick="setMonto(500)">$500</button>
+          </div>
+          <button class="pay-btn" onclick="mostrarCalculo()">Ver desglose ⚡</button>
+          <button class="btn-volver" style="margin-top:0.5rem" onclick="showScreen('buscar')">← Cambiar negocio</button>
+        </div>
+        <div class="pos-screen" id="screen-calculo">
+          <div class="calculo-header">
+            <div class="calculo-monto" id="calcMonto">$0.00 MXN</div>
+            <div class="calculo-sub" id="calcNegocioLabel">Desglose del cobro</div>
+          </div>
+          <div class="desglose">
+            <div class="desglose-row"><span class="dl">Precio BTC/MXN</span><span class="dv gold" id="calcPrecioBtc">—</span></div>
+            <div class="desglose-row"><span class="dl">Equivalente en BTC</span><span class="dv" id="calcBtc">—</span></div>
+            <div class="desglose-row"><span class="dl">Satoshis</span><span class="dv gold" id="calcSats">—</span></div>
+            <div class="desglose-sep"></div>
+            <div class="desglose-row"><span class="dl">Comisión Bitso (1.5%)</span><span class="dv" id="calcCom">—</span></div>
+            <div class="desglose-row"><span class="dl">Bonificación KinBit (15%)</span><span class="dv green" id="calcBono">—</span></div>
+            <div class="desglose-row"><span class="dl">Comisión real</span><span class="dv" id="calcComReal">—</span></div>
+            <div class="desglose-sep"></div>
+            <div class="desglose-row"><span class="dl">Tu balance disponible</span><span class="dv gold" id="calcBalance">—</span></div>
+            <div class="desglose-row"><span class="dl">Total a pagar</span><span class="dv total" id="calcTotal">—</span></div>
+          </div>
+          <button class="btn-generar-qr" onclick="generarQR()">Generar QR Lightning ⚡</button>
+          <button class="btn-volver" onclick="showScreen('monto')">← Cambiar monto</button>
+        </div>
+        <div class="pos-screen" id="screen-qr">
+          <div class="qr-screen-header">
+            <div class="qr-screen-title">Escanea para pagar</div>
+            <div class="qr-screen-sub" id="qrMonto">— MXN · Lightning</div>
+          </div>
+          <div class="qr-box">
+            <div class="qr-loading" id="qrLoading">⚡</div>
+            <img id="qrImg" src="" alt="QR" style="display:none;width:100%;height:100%;border-radius:12px;"
+                 onload="document.getElementById('qrLoading').style.display='none';this.style.display='block';"
+                 onerror="document.getElementById('qrLoading').innerHTML='⚠️';" />
+          </div>
+          <div class="qr-progress-wrap" id="qrProgressWrap">
+            <div class="qr-progress-bar"><div class="qr-progress-fill" id="qrProgressFill"></div></div>
+            <div class="qr-progress-info"><span><span class="pulse-dot"></span>Verificando pago...</span><span id="qrSecs">20s</span></div>
+          </div>
+          <button class="qr-invoice-copy" onclick="copiarInvoice()">📋 Copiar invoice Lightning</button>
+          <button class="btn-simular" id="btnSimular" onclick="iniciarSimulacion()">⚡ Simular pago (demo)</button>
+          <button class="btn-volver" onclick="cancelarQR()">← Cancelar</button>
+        </div>
+        <div class="pos-screen" id="screen-processing">
+          <div class="processing-screen">
+            <div class="spinner-ring"></div>
+            <div class="processing-title">Procesando pago...</div>
+            <div class="processing-sub">Confirmando con Lightning Network</div>
+            <div class="processing-steps">
+              <div class="proc-step done" id="pstep1"><div class="proc-dot"></div><span>Pago Lightning recibido</span></div>
+              <div class="proc-step active" id="pstep2"><div class="proc-dot"></div><span>Convirtiendo BTC → MXN</span></div>
+              <div class="proc-step" id="pstep3"><div class="proc-dot"></div><span>Enviando SMS al vendedor</span></div>
+              <div class="proc-step" id="pstep4"><div class="proc-dot"></div><span>Preparando código de retiro</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="pos-screen" id="screen-success">
+          <div class="success-screen">
+            <div class="success-icon">✓</div>
+            <div class="success-title">¡Pago exitoso!</div>
+            <div class="success-amount" id="successAmount">$0.00 MXN</div>
+            <div class="success-sub" id="successSats">≈ 0 sats · Lightning Network</div>
+            <div class="sms-preview">
+              <div class="sms-label">📱 SMS enviado al vendedor</div>
+              <div class="sms-text" id="smsPreview"></div>
+            </div>
+            <div class="retiro-section">
+              <div class="retiro-section-title">💰 Opciones de retiro para el vendedor</div>
+              <div class="retiro-metodos">
+                <div class="retiro-metodo-btn active" id="btnRetiroOXXO" onclick="mostrarRetiro('oxxo')"><div class="rm-icon">🏪</div><div class="rm-label">OXXO</div><div class="rm-desc">Efectivo al instante</div></div>
+                <div class="retiro-metodo-btn" id="btnRetiroSPEI" onclick="mostrarRetiro('spei')"><div class="rm-icon">🏦</div><div class="rm-label">SPEI</div><div class="rm-desc">A cuenta bancaria</div></div>
+              </div>
+              <div class="codigo-retiro-box visible" id="retiroOXXO">
+                <div class="codigo-oxxo">
+                  <img id="codigoBarrasImg" src="" alt="Código de barras OXXO" />
+                  <div class="codigo-oxxo-num" id="codigoBarrasNum"></div>
+                </div>
+                <div class="retiro-info">📍 Presenta este código en cualquier OXXO. El cajero escanea y te entrega el efectivo. Válido por 24 horas.</div>
+              </div>
+              <div class="codigo-retiro-box" id="retiroSPEI">
+                <div class="codigo-spei" id="datosSPEI"></div>
+                <div class="retiro-info">🏦 El dinero llegará a la cuenta registrada por SPEI en un máximo de 2 horas hábiles.</div>
+              </div>
+            </div>
+            <button class="reset-btn" onclick="resetApp()">← Nuevo pago</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SUB-TAB: HISTORIAL -->
+    <div id="ctab-historial" class="comprador-subtab" style="display:none">
+      <div class="wallet-card">
+        <div class="wallet-historial" style="border-top:none;">
+          <div class="wallet-hist-title">Últimas transacciones</div>
+          <div id="historialTxs"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ TAB 6: SIMULADOR ══════ -->
+<div id="tab-simulador" class="tab-content">
+  <div class="sim-wrapper">
+    <div class="section-hero" style="padding:1.5rem 0 1.5rem">
+      <h2><span style="color:var(--white)">Simulador </span><span style="color:var(--orange)">de Transacción</span></h2>
+      <p>Ve paso a paso qué sucede cuando un comprador paga con KinBit</p>
+    </div>
+    <div class="sim-escenario">
+      <div class="sim-escenario-title">⚙️ Configura el escenario</div>
+      <div class="sim-campos">
+        <div class="sim-campo"><label>Monto a pagar (MXN)</label><input type="number" id="simMonto" value="150" /></div>
+        <div class="sim-campo"><label>Nombre del vendedor</label><input type="text" id="simVendedor" value="Tacos Doña María" /></div>
+        <div class="sim-campo"><label>Celular del vendedor</label><input type="text" id="simCelular" value="+529991234567" /></div>
+        <div class="sim-campo">
+          <label>Método de retiro</label>
+          <select id="simRetiro">
+            <option value="oxxo">OXXO (efectivo)</option>
+            <option value="spei">SPEI (banco)</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn-iniciar-sim" onclick="iniciarSim()">▶ Iniciar simulación</button>
+    </div>
+    <div class="sim-pasos" id="simPasos">
+      <div class="sim-paso" id="spaso1"><div class="sim-paso-num">01</div><div class="sim-paso-contenido"><h4>Comprador abre la app y busca el negocio</h4><p>El comprador con la app KinBit escribe el nombre del negocio para encontrarlo.</p><div class="sim-dato" id="sd1"></div></div><div class="sim-paso-icon">📱</div></div>
+      <div class="sim-paso" id="spaso2"><div class="sim-paso-num">02</div><div class="sim-paso-contenido"><h4>Ingresa el monto y revisa el desglose</h4><p>Verifica cuántos sats son, la comisión real y si su balance alcanza.</p><div class="sim-dato" id="sd2"></div></div><div class="sim-paso-icon">💰</div></div>
+      <div class="sim-paso" id="spaso3"><div class="sim-paso-num">03</div><div class="sim-paso-contenido"><h4>KinBit genera invoice Lightning en Bitso</h4><p>El servidor crea un invoice por el monto exacto en BTC para pagar.</p><div class="sim-dato" id="sd3"></div></div><div class="sim-paso-icon">⚡</div></div>
+      <div class="sim-paso" id="spaso4"><div class="sim-paso-num">04</div><div class="sim-paso-contenido"><h4>Comprador escanea QR y paga</h4><p>Lightning liquida la transacción en menos de 3 segundos.</p><div class="sim-dato" id="sd4"></div></div><div class="sim-paso-icon">✅</div></div>
+      <div class="sim-paso" id="spaso5"><div class="sim-paso-num">05</div><div class="sim-paso-contenido"><h4>Bitso convierte BTC → MXN</h4><p>Se aplica la comisión de 1.5% menos el 15% de bonificación KinBit.</p><div class="sim-dato" id="sd5"></div></div><div class="sim-paso-icon">₿→💵</div></div>
+      <div class="sim-paso" id="spaso6"><div class="sim-paso-num">06</div><div class="sim-paso-contenido"><h4>SMS de confirmación al vendedor</h4><p>Twilio envía automáticamente el SMS al celular del vendedor.</p><div class="sim-dato" id="sd6"></div></div><div class="sim-paso-icon">📱</div></div>
+      <div class="sim-paso" id="spaso7"><div class="sim-paso-num">07</div><div class="sim-paso-contenido"><h4>Se genera código de retiro</h4><p>Dependiendo del método elegido: código de barras OXXO o instrucciones SPEI.</p><div class="sim-dato" id="sd7"></div></div><div class="sim-paso-icon">🏪</div></div>
+    </div>
+    <div class="sim-resultado" id="simResultado">
+      <h3>✅ Transacción completada</h3>
+      <p id="simResumenTexto"></p>
+      <button class="btn-reset-sim" onclick="resetSim()">← Simular de nuevo</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ TAB 7: DIAGRAMA ══════ -->
+<div id="tab-diagrama" class="tab-content">
+  <div class="diagrama-wrapper">
+    <div class="section-hero" style="padding:1.5rem 0 1.5rem">
+      <h2><span style="color:var(--white)">Diagrama </span><span style="color:var(--orange)">del Sistema</span></h2>
+      <p>Flujo completo de una transacción KinBit</p>
+    </div>
+    <div class="diagrama-actores">
+      <div class="actor-box actor-vendedor"><div class="actor-box-icon">👩‍🍳</div><div class="actor-box-name">Vendedor</div><div class="actor-box-sub">Sin app</div></div>
+      <div class="actor-box actor-sistema"><div class="actor-box-icon">₿</div><div class="actor-box-name">KinBit</div><div class="actor-box-sub">+ Bitso + Twilio</div></div>
+      <div class="actor-box actor-cliente"><div class="actor-box-icon">📱</div><div class="actor-box-name">Comprador</div><div class="actor-box-sub">Tiene la app</div></div>
+    </div>
+    <div class="diagrama-flujo">
+      <div class="dflujo-paso"><div class="dflujo-num">1</div><div class="dflujo-card dflujo-vendedor"><div class="dflujo-icon">📝</div><div class="dflujo-texto">Se registra<br/><span>una sola vez</span></div></div><div class="dflujo-flecha">→</div><div class="dflujo-card dflujo-sistema"><div class="dflujo-icon">⚙️</div><div class="dflujo-texto">Guarda perfil<br/>+ método retiro</div></div></div>
+      <div class="dflujo-divisor"></div>
+      <div class="dflujo-paso"><div class="dflujo-num">2</div><div class="dflujo-card dflujo-cliente"><div class="dflujo-icon">🔍</div><div class="dflujo-texto">Busca negocio<br/>en la app</div></div><div class="dflujo-flecha">→</div><div class="dflujo-card dflujo-cliente"><div class="dflujo-icon">💰</div><div class="dflujo-texto">Ingresa monto<br/>ve desglose BTC</div></div><div class="dflujo-flecha">→</div><div class="dflujo-card dflujo-sistema"><div class="dflujo-icon">⚡</div><div class="dflujo-texto">Genera invoice<br/>Lightning Bitso</div></div></div>
+      <div class="dflujo-divisor"></div>
+      <div class="dflujo-paso"><div class="dflujo-num">3</div><div class="dflujo-card dflujo-cliente"><div class="dflujo-icon">📷</div><div class="dflujo-texto">Escanea QR<br/>confirma pago</div></div><div class="dflujo-flecha">→</div><div class="dflujo-card dflujo-sistema"><div class="dflujo-icon">🔍</div><div class="dflujo-texto">Verifica pago<br/>en Bitso API</div></div><div class="dflujo-flecha">→</div><div class="dflujo-card dflujo-sistema"><div class="dflujo-icon">₿→💵</div><div class="dflujo-texto">Convierte<br/>BTC → MXN</div></div></div>
+      <div class="dflujo-divisor"></div>
+      <div class="dflujo-paso"><div class="dflujo-num">4</div><div class="dflujo-card dflujo-sistema"><div class="dflujo-icon">📱</div><div class="dflujo-texto">SMS al<br/>vendedor</div></div><div class="dflujo-flecha">→</div><div class="dflujo-card dflujo-vendedor"><div class="dflujo-icon">✅</div><div class="dflujo-texto"><span>¡Cobro exitoso!</span><br/>$150 MXN</div></div></div>
+      <div class="dflujo-divisor"></div>
+      <div class="dflujo-paso"><div class="dflujo-num">5</div><div class="dflujo-card dflujo-sistema"><div class="dflujo-icon">🏪</div><div class="dflujo-texto">Genera código<br/>retiro OXXO</div></div><div class="dflujo-flecha">o</div><div class="dflujo-card dflujo-sistema"><div class="dflujo-icon">🏦</div><div class="dflujo-texto">Envía SPEI<br/>al banco</div></div><div class="dflujo-flecha">→</div><div class="dflujo-card dflujo-vendedor"><div class="dflujo-icon">💵</div><div class="dflujo-texto">Cobra<br/><span>en efectivo</span></div></div></div>
+    </div>
+    <div class="diagrama-stack">
+      <div class="stack-titulo">Stack tecnológico</div>
+      <div class="stack-items">
+        <div class="stack-item"><span>⚡</span><span>Lightning Network</span></div>
+        <div class="stack-item"><span>🟠</span><span>Bitso API</span></div>
+        <div class="stack-item"><span>📱</span><span>Twilio SMS</span></div>
+        <div class="stack-item"><span>🟢</span><span>Node.js + Express</span></div>
+        <div class="stack-item"><span>🏪</span><span>OXXO Pay</span></div>
+        <div class="stack-item"><span>🏦</span><span>SPEI / CLABE</span></div>
+        <div class="stack-item"><span>🔐</span><span>Ley Fintech MX</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ TAB 8: KITBIT PRO ══════ -->
+<div id="tab-pro" class="tab-content">
+  <div class="pro-wrapper">
+
+    <!-- Hero -->
+    <div class="pro-hero">
+      <div class="pro-badge">⭐ SUSCRIPCIÓN MENSUAL</div>
+      <h2><span class="pro-highlight">KinBit</span> <span style="color:var(--white)">Pro</span></h2>
+      <p class="pro-hero-sub">
+        Potencia tu negocio con herramientas avanzadas.<br/>
+        <strong>Todo lo de la versión gratuita, y mucho más.</strong>
+      </p>
+    </div>
+
+    <!-- Precio -->
+    <div class="pro-price-card">
+      <div class="pro-price-top">
+        <span class="pro-icon">⭐</span>
+        <span class="pro-name">Kin<span>Bit</span> Pro</span>
+      </div>
+      <div class="pro-price-label">Suscripción mensual</div>
+      <div class="pro-price-amount">
+        <span class="pro-currency">$</span>350<span class="pro-period"> MXN/mes</span>
+      </div>
+      <div class="pro-price-saving">Equivale a solo $11.66 MXN por día</div>
+      <button class="pro-cta-btn" onclick="alert('¡Gracias por tu interés! Muy pronto disponible. Te avisaremos por SMS cuando esté activo.')">
+        ⚡ Suscribirme ahora
+      </button>
+      <p class="pro-guarantee">🔒 Cancela cuando quieras · Sin permanencia · Pago seguro</p>
+    </div>
+
+    <!-- Features -->
+    <h3 style="text-align:center;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:1.25rem;">¿Qué incluye KinBit Pro?</h3>
+    <div class="pro-features-grid">
+      <div class="pro-feature-card">
+        <div class="pro-feat-icon">📊</div>
+        <div class="pro-feat-title">Panel de ventas avanzado</div>
+        <div class="pro-feat-desc">Consulta tus ventas por día, semana o mes. Gráficas de ingresos, tickets promedio y tendencias de tu negocio en tiempo real.</div>
+        <span class="pro-feat-badge">Nuevo</span>
+      </div>
+      <div class="pro-feature-card">
+        <div class="pro-feat-icon">📣</div>
+        <div class="pro-feat-title">SMS ilimitados al vendedor</div>
+        <div class="pro-feat-desc">Recibe confirmación por SMS de cada venta sin límite de mensajes al mes. Sin restricciones, sin sorpresas.</div>
+      </div>
+      <div class="pro-feature-card">
+        <div class="pro-feat-icon">🔔</div>
+        <div class="pro-feat-title">Alertas personalizadas</div>
+        <div class="pro-feat-desc">Configura alertas cuando una venta supera cierto monto, cuando tu saldo es bajo, o al finalizar el día con un resumen automático.</div>
+        <span class="pro-feat-badge">Exclusivo Pro</span>
+      </div>
+      <div class="pro-feature-card">
+        <div class="pro-feat-icon">🏷️</div>
+        <div class="pro-feat-title">QR de negocio personalizado</div>
+        <div class="pro-feat-desc">Genera un QR permanente con el nombre y logo de tu negocio. Imprímelo y ponlo en tu local. Los compradores solo lo escanean.</div>
+      </div>
+      <div class="pro-feature-card">
+        <div class="pro-feat-icon">💳</div>
+        <div class="pro-feat-title">Retiros prioritarios OXXO</div>
+        <div class="pro-feat-desc">Tus códigos de retiro OXXO se generan con validez extendida de 72 horas y procesamiento prioritario vs. 24h en la versión gratuita.</div>
+        <span class="pro-feat-badge">Exclusivo Pro</span>
+      </div>
+      <div class="pro-feature-card">
+        <div class="pro-feat-icon">🤝</div>
+        <div class="pro-feat-title">Soporte prioritario</div>
+        <div class="pro-feat-desc">Acceso a chat de soporte con respuesta en menos de 2 horas hábiles. Tu negocio no puede esperar.</div>
+      </div>
+    </div>
+
+    <!-- Comparativa -->
+    <div class="pro-compare">
+      <div class="pro-compare-header">
+        <span style="font-size:1.1rem;">⚖️</span>
+        <span class="pro-compare-title">Gratis vs Pro — Comparativa completa</span>
+      </div>
+      <div class="pro-compare-row hdr">
+        <div>Función</div>
+        <div style="text-align:center;">Gratis</div>
+        <div style="text-align:center;color:var(--orange)">Pro</div>
+      </div>
+      <div class="pro-compare-row"><div class="pcl">Registro de negocio</div><div class="pcv free">✓</div><div class="pcv pro">✓</div></div>
+      <div class="pro-compare-row"><div class="pcl">SMS de confirmación</div><div class="pcv free">50/mes</div><div class="pcv pro">Ilimitados</div></div>
+      <div class="pro-compare-row"><div class="pcl">Retiro OXXO</div><div class="pcv free">24h</div><div class="pcv pro">72h · Prioritario</div></div>
+      <div class="pro-compare-row"><div class="pcl">Retiro SPEI</div><div class="pcv free">✓</div><div class="pcv pro">✓</div></div>
+      <div class="pro-compare-row"><div class="pcl">Panel de ventas</div><div class="pcv free">—</div><div class="pcv pro">✓ Completo</div></div>
+      <div class="pro-compare-row"><div class="pcl">QR personalizado del negocio</div><div class="pcv free">—</div><div class="pcv pro">✓</div></div>
+      <div class="pro-compare-row"><div class="pcl">Alertas de ventas</div><div class="pcv free">—</div><div class="pcv pro">✓</div></div>
+      <div class="pro-compare-row"><div class="pcl">Exportar historial CSV</div><div class="pcv free">—</div><div class="pcv pro">✓</div></div>
+      <div class="pro-compare-row"><div class="pcl">Soporte por chat</div><div class="pcv free">Email</div><div class="pcv pro">&lt; 2h respuesta</div></div>
+      <div class="pro-compare-row"><div class="pcl">Precio mensual</div><div class="pcv free">$0 MXN</div><div class="pcv" style="color:var(--orange);font-weight:700;font-size:0.95rem;">$350 MXN</div></div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="pro-faq">
+      <div class="pro-faq-title">Preguntas frecuentes</div>
+      <div class="pro-faq-item" onclick="toggleProFaq(this)">
+        <div class="pro-faq-q">¿Cómo pago mi suscripción Pro? <span class="pro-faq-arrow">▼</span></div>
+        <div class="pro-faq-a">Puedes pagar tu suscripción de $350 MXN/mes directamente en OXXO con efectivo, por SPEI o con tarjeta. No necesitas banco ni tarjeta de crédito obligatoria.</div>
+      </div>
+      <div class="pro-faq-item" onclick="toggleProFaq(this)">
+        <div class="pro-faq-q">¿Puedo cancelar en cualquier momento? <span class="pro-faq-arrow">▼</span></div>
+        <div class="pro-faq-a">Sí, sin penalización ni permanencia mínima. Si cancelas, mantienes los beneficios Pro hasta el fin del período pagado y luego pasas a la versión gratuita automáticamente.</div>
+      </div>
+      <div class="pro-faq-item" onclick="toggleProFaq(this)">
+        <div class="pro-faq-q">¿Los $350 MXN incluyen las comisiones de transacción? <span class="pro-faq-arrow">▼</span></div>
+        <div class="pro-faq-a">No, los $350 MXN son únicamente la suscripción mensual a las herramientas Pro. Las comisiones de transacción (~0.5%) se aplican de forma independiente sobre cada pago recibido, igual que en la versión gratuita.</div>
+      </div>
+      <div class="pro-faq-item" onclick="toggleProFaq(this)">
+        <div class="pro-faq-q">¿Funciona Pro si no tengo smartphone? <span class="pro-faq-arrow">▼</span></div>
+        <div class="pro-faq-a">¡Sí! Los SMS ilimitados y el panel de ventas están disponibles también desde cualquier computadora. No necesitas smartphone para aprovechar KinBit Pro como vendedor.</div>
+      </div>
+    </div>
+
+    <!-- CTA final -->
+    <div class="pro-bottom-cta">
+      <h3>¿Listo para hacer crecer tu negocio?</h3>
+      <p>Únete a KinBit Pro y acepta pagos Bitcoin como un profesional.<br/>Sin banco. Sin complicaciones. Solo $350 al mes.</p>
+      <button class="pro-cta-btn" style="max-width:320px;margin:0 auto;display:block;" onclick="alert('¡Gracias por tu interés! Muy pronto disponible. Te avisaremos por SMS cuando esté activo.')">
+        ⭐ Empezar con KinBit Pro
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODALES -->
+<div class="modal" id="modalRecibir">
+  <div class="modal-card">
+    <div class="modal-header"><div class="modal-title">Recibir Bitcoin</div><button class="modal-close" onclick="cerrarModal('modalRecibir')">✕</button></div>
+    <div class="modal-qr" id="modalQRRecibir"><img src="" id="modalQRImg" style="width:100%;border-radius:8px;" /></div>
+    <p style="font-size:0.68rem;color:var(--gray);text-align:center;margin-bottom:0.85rem;">Comparte este QR para recibir pagos Lightning</p>
+    <button class="btn-primary" style="width:100%;font-size:0.88rem;padding:0.75rem" onclick="cerrarModal('modalRecibir')">Cerrar</button>
+  </div>
+</div>
+<div class="modal" id="modalEnviar">
+  <div class="modal-card">
+    <div class="modal-header"><div class="modal-title">Enviar Bitcoin</div><button class="modal-close" onclick="cerrarModal('modalEnviar')">✕</button></div>
+    <label class="campo-label">Invoice Lightning (lnbc...)</label>
+    <input class="campo-input" id="invoiceEnviar" placeholder="lnbc150n1p..." />
+    <label class="campo-label">Monto (MXN)</label>
+    <input class="campo-input" type="number" id="montoEnviar" placeholder="150" />
+    <button class="registro-btn" style="background:var(--orange)" onclick="simularEnvio()">Enviar →</button>
+  </div>
+</div>
+
+<footer><p>₿ <span>KinBit</span> — El dinero del sol para el comercio mexicano · 2025</p></footer>
+
+<script src="script.js"></script>
+</body>
+</html>

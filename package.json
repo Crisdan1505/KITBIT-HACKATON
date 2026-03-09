@@ -1,0 +1,23 @@
+{
+  "name": "kinbit-backend",
+  "version": "2.1.0",
+  "description": "Terminal de cobro Bitcoin Lightning vía SMS",
+  "main": "backend/server.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start":     "node backend/server.js",
+    "dev":       "nodemon backend/server.js",
+    "logs":      "cat backend/logs/transacciones.json | python3 -m json.tool"
+  },
+  "dependencies": {
+    "cors":     "^2.8.5",
+    "dotenv":   "^16.4.5",
+    "express":  "^4.19.2",
+    "twilio":   "^5.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

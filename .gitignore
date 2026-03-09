@@ -1,0 +1,5 @@
+node_modules/
+backend/.env
+backend/logs/transacciones.json
+*.log
+.DS_Store
